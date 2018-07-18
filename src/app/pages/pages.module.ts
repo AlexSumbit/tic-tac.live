@@ -8,6 +8,7 @@ import { FaqComponent } from './faq/faq.component';
 import { GameComponent } from './game/game.component';
 import { MainComponent } from './main/main.component';
 import { PageComponent } from './page.component';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   { path: "", component: PrelandComponent, pathMatch: 'full' },
@@ -19,7 +20,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   declarations: [
     PrelandComponent,

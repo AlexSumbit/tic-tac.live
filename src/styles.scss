@@ -1,3 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "assets/style/vendor/normalize.css";
 @import "assets/style/vendor/skeleton.css";
+
+body {
+    overflow: hidden;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #33C3F0;
+}

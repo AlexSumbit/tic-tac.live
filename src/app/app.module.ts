@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { PagesModule } from './pages/pages.module';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { PagesModule } from './pages/pages.module';
+
 
 
 @NgModule({
@@ -11,7 +14,12 @@ import { PagesModule } from './pages/pages.module';
   ],
   imports: [
     BrowserModule,
-    PagesModule
+    PagesModule,
+    RouterModule.forRoot([]),
+    BrowserAnimationsModule
+  ],
+  exports: [
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
