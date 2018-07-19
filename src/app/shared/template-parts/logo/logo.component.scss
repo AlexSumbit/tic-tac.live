@@ -1,0 +1,21 @@
+.logo {
+    text-transform: uppercase;
+    font-weight: 100;
+
+    &-2 {
+        color: #7fbb00;
+        font-size: 2em;
+
+        &-1 {
+            position: relative;
+            bottom: 3px;
+            color: #7fbb00;
+            margin: 0 5px;
+        }
+    }
+
+    &-3 {
+        font-size: 0.6em;
+        color: #7fbb00;
+    }
+}
