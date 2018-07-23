@@ -1,36 +1,24 @@
 <div class="page">
   <div class="page-content">
-    <div class="game-state">
-      <div class="player player--x">X</div>
-      <strong class="game-mode">Two players</strong>
-      <div class="player player--o">O</div>
-    </div>
+    <tic-game-state></tic-game-state>
     <div class="game">
         <div class="panel panel-left">
 
         </div>
-        <div class="game-board">
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-          <div class="game-cell disabled">X</div>
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-          <div class="game-cell disabled">O</div>
-          <div class="game-cell"></div>
-          <div class="game-cell"></div>
-        </div>
+
+        <tic-game-board [board]="gameBoard"></tic-game-board>
+
         <div class="panel panel-right">
           <div class="right-nav">
             <div class="right-nav__top">
               <button class="button-secondary right-nav__item">Restart</button>
-              <span>You turn</span>
             </div>
             <div class="right-nav__bottom">
               <button class="button-primary right-nav__item" routerLink="/game">Main menu</button>
             </div>
           </div>
         </div>
+
     </div>
   </div>
 </div>

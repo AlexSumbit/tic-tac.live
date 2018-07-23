@@ -1,0 +1,16 @@
+.game-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .player {
+        font-size: 26px;
+        font-weight: bold;
+        margin: 0 20px;
+    }
+
+    .game-mode {
+        font-weight: 100;
+        color: #ccc;
+    }
+}
