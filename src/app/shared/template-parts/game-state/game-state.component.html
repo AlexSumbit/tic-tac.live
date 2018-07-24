@@ -1,5 +1,5 @@
 <div class="game-state">
-  <div class="player player--x">X</div>
-  <strong class="game-mode">Two players</strong>
-  <div class="player player--o">O</div>
+  <div class="player" [ngClass]="{ active: state?.currentPlayer?.role == 'O' }">O</div>
+  <strong class="game-mode">{{ state?.gameMode }}</strong>
+  <div class="player" [ngClass]="{ active: state?.currentPlayer?.role == 'X' }">X</div>
 </div>

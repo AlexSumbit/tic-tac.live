@@ -17,21 +17,26 @@ export class TwoPlayersComponent implements OnInit {
   constructor(
     private game: GameService
   ) {
-    let player1 = new Player("1", "X");
-    let player2 = new Player("2", "O");
+    let player1 = new Player("player 1", "O");
+    let player2 = new Player("player 2", "X");
 
-    this.game.turn(new Turn(0, 0), player1);
-    this.game.turn(new Turn(1, 0), player2);
-
-    console.log(this.gameBoard);
+    this.game.initGame([player1, player2], "Two players");
    }
 
   ngOnInit() {
     
   }
 
+  turn(turn: Turn) {
+    this.game.turn(turn);
+  }
+
   get gameBoard() {
     return this.game.getGameBoard();
+  }
+
+  get gameState() {
+    return this.game.getGameState();
   }
 
 }

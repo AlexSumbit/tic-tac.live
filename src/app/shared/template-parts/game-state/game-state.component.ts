@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GameState } from '../../models/game-state';
 
 @Component({
   selector: 'tic-game-state',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-state.component.scss']
 })
 export class GameStateComponent implements OnInit {
+
+  @Input() state: GameState;
 
   constructor() { }
 

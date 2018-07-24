@@ -1,12 +1,13 @@
 <div class="page">
   <div class="page-content">
-    <tic-game-state></tic-game-state>
+    <tic-game-state [state]="gameState"></tic-game-state>
     <div class="game">
         <div class="panel panel-left">
 
         </div>
 
-        <tic-game-board [board]="gameBoard"></tic-game-board>
+        <tic-game-board [board]="gameBoard"
+                        (onCellClick)="turn($event)"></tic-game-board>
 
         <div class="panel panel-right">
           <div class="right-nav">

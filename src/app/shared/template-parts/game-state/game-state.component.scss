@@ -7,6 +7,12 @@
         font-size: 26px;
         font-weight: bold;
         margin: 0 20px;
+        transition: 0.15s all;
+
+        &.active {
+            color: #7fbb00;
+            transform: scale(1.2);
+        }
     }
 
     .game-mode {
