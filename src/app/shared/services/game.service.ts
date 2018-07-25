@@ -21,11 +21,7 @@ export class GameService {
   private _updateGameState(): void {
     let currentPlayer = this._gameState.currentPlayer;
 
-    let result = this.checkWin();
-    console.log(result);
-    if(result) {
-      alert(result.result + ": " + result.player.name);
-    }
+    this._gameState.result = this.checkWin();
 
     if(currentPlayer == this._gameState.players[0]) 
       this._gameState.currentPlayer = this._gameState.players[1];
@@ -97,32 +93,40 @@ export class GameService {
    */
   private _checkRow(c1:Cell, c2:Cell, c3:Cell):boolean {
     if(c1.player && c2.player && c3.player) {
-      return true;
+      if(c1.player == c2.player && c1.player == c3.player) return true;
     }
 
     return false;
   }
   
+  /**
+   * @returns GameResult
+   */
   public checkWin(): GameResult {
-    let result:GameResult = null;
     let b = this._gameBoard;
     let winCells:Array<Cell>;
 
     if(this._gameState.moveCount >= 5) {
 
       // rows
-      if(this._checkRow(b[0][0], b[0][1], b[0][2])) return new GameResult(b[0][0].player, [b[0][0], b[0][1], b[0][2]]);
-      if(this._checkRow(b[1][0], b[1][1], b[1][2])) return new GameResult(b[1][0].player, [b[1][0], b[1][1], b[1][2]]);
-      if(this._checkRow(b[2][0], b[2][1], b[2][2])) return new GameResult(b[2][0].player, [b[2][0], b[2][1], b[2][2]]);
+      if(this._checkRow( b[0][0], b[0][1], b[0][2] )) return new GameResult(b[0][0].player, [ b[0][0], b[0][1], b[0][2] ]);
+      if(this._checkRow( b[1][0], b[1][1], b[1][2] )) return new GameResult(b[1][0].player, [ b[1][0], b[1][1], b[1][2] ]);
+      if(this._checkRow( b[2][0], b[2][1], b[2][2] )) return new GameResult(b[2][0].player, [ b[2][0], b[2][1], b[2][2] ]);
 
       // cols
-      if(this._checkRow(b[0][0], b[0][1], b[0][2])) return new GameResult(b[0][0].player, [b[0][0], b[0][1], b[0][2]]);
-      if(this._checkRow(b[0][0], b[0][1], b[0][2])) return new GameResult(b[1][0].player, [b[1][0], b[1][1], b[1][2]]);
-      if(this._checkRow(b[0][0], b[0][1], b[0][2])) return new GameResult(b[2][0].player, [b[2][0], b[0][1], b[2][2]]);
-      
+      if(this._checkRow( b[0][0], b[1][0], b[2][0] )) return new GameResult(b[0][0].player, [ b[0][0], b[1][0], b[2][0] ]);
+      if(this._checkRow( b[0][1], b[1][1], b[2][1] )) return new GameResult(b[0][1].player, [ b[0][1], b[1][1], b[2][1] ]);
+      if(this._checkRow( b[0][2], b[1][2], b[2][2] )) return new GameResult(b[0][2].player, [ b[0][2], b[1][2], b[2][2] ]);
+
+      // diags
+      if(this._checkRow( b[0][0], b[1][1], b[2][2] )) return new GameResult(b[0][0].player, [ b[0][0], b[1][1], b[2][2] ]);
+      if(this._checkRow( b[2][0], b[1][1], b[0][2] )) return new GameResult(b[2][0].player, [ b[2][0], b[1][1], b[0][2] ]);
+
+      // tie
+      if(this._gameState.moveCount == 9) return new GameResult(null, null, "tie")
     }
 
-    return result;
+    return null;
   }
 
 }

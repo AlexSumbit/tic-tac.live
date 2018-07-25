@@ -15,4 +15,10 @@ export class GameStateComponent implements OnInit {
   ngOnInit() {
   }
 
+  get end(): boolean {
+    if(this.state.result) return true;
+
+    return false;
+  }
+
 }

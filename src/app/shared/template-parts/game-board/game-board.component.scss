@@ -32,4 +32,33 @@
         pointer-events: none;
         border: none;
     }
+
+    &.active {
+        color: #7fbb00;
+        border: 1px solid;
+        background-color: #fafafa;
+        animation-name: bounceIn;
+        animation-duration: 250ms;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
 }
+
+@keyframes bounceIn{
+    0%{
+      opacity: 0;
+      transform: scale(0.5) translate3d(0,0,0);
+    }
+    50%{
+      opacity: 0.9;
+      transform: scale(1.1);
+    }
+    80%{
+      opacity: 1;
+      transform: scale(0.89);
+    }
+    100%{
+      opacity: 1;
+      transform: scale(1) translate3d(0,0,0);
+    }
+  }

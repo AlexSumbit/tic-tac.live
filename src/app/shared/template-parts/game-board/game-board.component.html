@@ -3,7 +3,10 @@
   <ng-container *ngFor="let row of board">
     <div class="game-cell" 
         *ngFor="let cell of row"
-        [ngClass]="{disabled: cell.player}"
+        [ngClass]="{
+          active: end && isWinnerCell(cell),
+          disabled: cell.player
+        }"
         (click)="cellClick(cell)"
         >{{ cell.player?.role }}</div>
   </ng-container>

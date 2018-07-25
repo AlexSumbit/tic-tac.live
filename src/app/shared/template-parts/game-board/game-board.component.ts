@@ -10,6 +10,7 @@ import { Cell } from '../../models/cell';
 export class GameBoardComponent implements OnInit {
 
   @Input() board;
+  @Input() state;
 
   @Output() onCellClick: EventEmitter<Turn> = new EventEmitter();
 
@@ -19,8 +20,27 @@ export class GameBoardComponent implements OnInit {
 
   }
 
+  isWinnerCell(cell: Cell): boolean {
+    let isWin: boolean = false;
+
+    if(this.end && this.state.result.winCells) {
+      let wc = this.state.result.winCells;
+      wc.forEach(c => {
+        if(cell == c) isWin = true;
+      });
+    } 
+
+    return isWin;
+  }
+
   cellClick(cell: Cell) {
     this.onCellClick.emit(new Turn(cell.x, cell.y));
+  }
+
+  get end(): boolean {
+    if(this.state.result) return true;
+
+    return false;
   }
 
 }
