@@ -19,8 +19,8 @@ export class TwoPlayersComponent implements OnInit {
     private game: GameService,
     private router: Router
   ) {
-    let player1 = new Player("player 1", "O");
-    let player2 = new Player("player 2", "X");
+    let player1 = new Player("player 1", "X");
+    let player2 = new Player("player 2", "O");
 
     this.game.initGame([player1, player2], "Two players");
 

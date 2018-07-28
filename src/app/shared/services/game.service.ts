@@ -107,7 +107,7 @@ export class GameService {
    */
   private _checkRow(c1:Cell, c2:Cell, c3:Cell):boolean {
     if(c1.player && c2.player && c3.player) {
-      if(c1.player == c2.player && c1.player == c3.player) return true;
+      if(c1.player.role == c2.player.role && c1.player.role == c3.player.role) return true;
     }
 
     return false;
@@ -119,7 +119,7 @@ export class GameService {
   public checkWin(b = this._gameBoard): GameResult {
     let winCells:Array<Cell>;
 
-    if(this._gameState.moveCount >= 5) {
+    if(this._gameState.moveCount >= 1) {
 
       // rows
       if(this._checkRow( b[0][0], b[0][1], b[0][2] )) return new GameResult(b[0][0].player, [ b[0][0], b[0][1], b[0][2] ]);

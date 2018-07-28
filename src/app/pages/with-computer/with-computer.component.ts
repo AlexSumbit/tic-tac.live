@@ -19,9 +19,6 @@ export class WithComputerComponent implements OnInit {
 
   public isPlayerSelect: boolean = false;
 
-  player: Player;
-  computer: Player;
-
   constructor(
     private game: GameService,
     private withComputer: WithComputerService,
@@ -47,25 +44,12 @@ export class WithComputerComponent implements OnInit {
   }
 
   selectPlayer(role: string) {
-    let players;
 
-    switch(role) {
-      case "X": 
-        this.player = new Player("player", "X");
-        this.computer = new Player("computer", "O");
-        players = [this.computer, this.player];
-        break;
-      case "O":
-        this.player = new Player("player", "O");
-        this.computer = new Player("computer", "X");
-        players = [this.player, this.computer];
-        break;
-    }
-
-    this.game.initGame(players, "With computer");
+    this.withComputer.selectPlayer(role);
+    
     this.isPlayerSelect = true;
 
-    if(role == "X") this.computerTurn();
+    if(role == "O") this.computerTurn();
   }
 
   computerTurn() {
@@ -92,6 +76,14 @@ export class WithComputerComponent implements OnInit {
 
   get gameState() {
     return this.game.getGameState();
+  }
+
+  get computer() {
+    return this.withComputer.computer;
+  }
+
+  get player() {
+    return this.withComputer.player;
   }
 
   get canTurn() {
