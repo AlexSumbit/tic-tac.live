@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 38px;
+    font-size: 0px;
     font-weight: bold;
 
     &:hover {
@@ -31,6 +31,7 @@
     &.disabled {
         pointer-events: none;
         border: none;
+        font-size: 38px;
     }
 
     &.active {

@@ -11,6 +11,7 @@ export class GameBoardComponent implements OnInit {
 
   @Input() board;
   @Input() state;
+  @Input() canTurn = true;
 
   @Output() onCellClick: EventEmitter<Turn> = new EventEmitter();
 
@@ -34,7 +35,9 @@ export class GameBoardComponent implements OnInit {
   }
 
   cellClick(cell: Cell) {
-    this.onCellClick.emit(new Turn(cell.x, cell.y));
+    if(this.canTurn) {
+      this.onCellClick.emit(new Turn(cell.x, cell.y));
+    }
   }
 
   get end(): boolean {

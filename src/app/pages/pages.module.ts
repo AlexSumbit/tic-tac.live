@@ -10,6 +10,7 @@ import { MainComponent } from './main/main.component';
 import { PageComponent } from './page.component';
 import { SharedModule } from '../shared/shared.module';
 import { TwoPlayersComponent } from './two-players/two-players.component';
+import { WithComputerComponent } from './with-computer/with-computer.component';
 
 const routes: Routes = [
   { path: "", component: PrelandComponent, pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: "faq", component: FaqComponent },
   { path: "game", component: GameComponent },
   { path: "game/two-players", component: TwoPlayersComponent },
+  { path: "game/with-computer", component: WithComputerComponent },
 ];
 
 @NgModule({
@@ -33,6 +35,7 @@ const routes: Routes = [
     MainComponent,
     PageComponent,
     TwoPlayersComponent,
+    WithComputerComponent,
   ],
   exports: [
     PageComponent

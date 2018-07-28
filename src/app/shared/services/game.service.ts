@@ -66,10 +66,24 @@ export class GameService {
   /**
    * return current game board
    */
-  public getGameBoard() {
+  public getGameBoard(): Array<Cell> {
     return this._gameBoard;
   }
   
+  /**
+   * @returns Array
+   */
+  public getFreeCells(): Array<Cell> {
+    let cells:Array<Cell> = [];
+    
+    this._gameBoard.forEach((row) => {
+      cells = cells.concat(row.filter(cell => {
+        if(!cell.player) return cell;
+      }));
+    });
+
+    return cells;
+  }
   
   /**
    * generate new game board
@@ -102,8 +116,7 @@ export class GameService {
   /**
    * @returns GameResult
    */
-  public checkWin(): GameResult {
-    let b = this._gameBoard;
+  public checkWin(b = this._gameBoard): GameResult {
     let winCells:Array<Cell>;
 
     if(this._gameState.moveCount >= 5) {

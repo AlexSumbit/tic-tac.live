@@ -1,0 +1,41 @@
+<div class="page">
+  <div class="page-content">
+    <ng-container *ngIf="!isPlayerSelect">
+      <div class="player-selector">
+          <div class="player-selector__title">Select player</div>
+          <div class="player-selector__desc">O - goes first</div>
+          <div class="player-selector__player">
+            <div class="player" (click)="selectPlayer('O')">O</div>
+            <div class="player" (click)="selectPlayer('X')">X</div>
+          </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="isPlayerSelect">
+      <tic-game-state [state]="gameState"></tic-game-state>
+      <div class="game">
+          <div class="panel panel-left">
+  
+          </div>
+  
+          <tic-game-board [board]="gameBoard"
+                          [state]="gameState"
+                          [canTurn]="canTurn"
+                          (onCellClick)="turn($event)"></tic-game-board>
+  
+          <div class="panel panel-right">
+            <div class="right-nav">
+              <div class="right-nav__top">
+                <button class="button-secondary right-nav__item" routerLink="/game/with-computer">Restart</button>
+              </div>
+              <div class="right-nav__bottom">
+                <button class="button-primary right-nav__item" routerLink="/game">Main menu</button>
+              </div>
+            </div>
+          </div>
+  
+      </div>
+    </ng-container>
+    
+  </div>
+</div>
