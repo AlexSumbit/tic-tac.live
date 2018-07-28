@@ -53,3 +53,16 @@ a {
         width: 100%;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .panel {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .game {
+        flex-direction: column;
+        margin: 0;
+    }
+}
