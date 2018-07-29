@@ -6,7 +6,6 @@ import { LogoComponent } from './template-parts/logo/logo.component';
 import { GameStateComponent } from './template-parts/game-state/game-state.component';
 import { GameBoardComponent } from './template-parts/game-board/game-board.component';
 import { TwoPlayersService } from './services/two-players.service';
-import { CeiboShare } from 'ng2-social-share';
 import { ShareButtonsComponent } from './template-parts/share-buttons/share-buttons.component'
 
 @NgModule({
@@ -19,7 +18,6 @@ import { ShareButtonsComponent } from './template-parts/share-buttons/share-butt
     LogoComponent,
     GameStateComponent,
     GameBoardComponent,
-    CeiboShare,
     ShareButtonsComponent
   ],
   exports: [
@@ -27,7 +25,6 @@ import { ShareButtonsComponent } from './template-parts/share-buttons/share-butt
     LogoComponent,
     GameStateComponent,
     GameBoardComponent,
-    CeiboShare,
     ShareButtonsComponent
   ],
   providers: [
